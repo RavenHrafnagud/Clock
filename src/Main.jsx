@@ -1,35 +1,38 @@
 import React from 'react';
 import { useEventos } from './hooks/useEventos';
+import { Contenedor, Titulo, Seccion, Numeros, Botones, Reloj, Borde } from './styles/style.jsx';
 
 function Main() {
 
   const { cortar, sesion, iterador, temporizador, titulo, eventoCortarMenos, eventoCortarMas, eventosesionMenos, eventosesionMas, eventoSeguirParar, eventoReset } = useEventos();
 
   return (
-    <main>
-      <h1>25 + 5 Clock</h1>
-      <section>
-        <h1 id="break-label">Break Length</h1>
-        <button id="break-decrement" onClick={eventoCortarMenos}>↓</button>
-        <span id="break-length">{cortar}</span>
-        <button id="break-increment" onClick={eventoCortarMas}>↑</button>
-      </section>
+    <Contenedor>
+      <Titulo principal>25 + 5 Clock</Titulo>
+      <Seccion corteTiempo>
+        <Titulo subTitulo id="break-label">Break Length</Titulo>
+        <Botones id="break-decrement" onClick={eventoCortarMenos}>↓</Botones>
+        <Numeros id="break-length">{cortar}</Numeros>
+        <Botones id="break-increment" onClick={eventoCortarMas}>↑</Botones>
+      </Seccion>
 
-      <section>
-        <h1 id="session-label">Session Length</h1>
-        <button id="session-decrement" onClick={eventosesionMenos}>↓</button>
-        <span id="session-length">{sesion}</span>
-        <button id="session-increment" onClick={eventosesionMas}>↑</button>
-      </section>
+      <Seccion sesionTiempo>
+        <Titulo subTitulo id="session-label">Session Length</Titulo>
+        <Botones id="session-decrement" onClick={eventosesionMenos}>↓</Botones>
+        <Numeros id="session-length">{sesion}</Numeros>
+        <Botones id="session-increment" onClick={eventosesionMas}>↑</Botones>
+      </Seccion>
 
-      <section>
-        <h1 id="timer-label">{iterador}</h1>
-        <span id="time-left">{titulo !== "1:00:00" ? temporizador : "60:00"}</span>
-        <button id="start_stop" onClick={eventoSeguirParar}>►◘</button>
-        <button id="reset" onClick={eventoReset}>Ø</button>
-        <audio id="beep" preload="auto" src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"></audio>
-      </section>
-    </main>
+      <Seccion relojTiempo>
+        <Borde>
+          <Titulo subTitulo id="timer-label">{iterador}</Titulo>
+          <Reloj id="time-left">{titulo !== "1:00:00" ? temporizador : "60:00"}</Reloj>
+          <audio id="beep" preload="auto" src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"></audio>
+        </Borde>
+        <Botones id="start_stop" onClick={eventoSeguirParar}>►◘</Botones>
+        <Botones id="reset" onClick={eventoReset}>Ø</Botones>
+      </Seccion>
+    </Contenedor>
   )
 }
 
