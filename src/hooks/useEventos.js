@@ -1,55 +1,52 @@
-import {useTemporizador} from './useTemporizador';
-
+import { useTemporizador } from './useTemporizador';
 
 export function useEventos() {
 
-    const {segundos, setSegundos, activo, setActivo, cortar, setCortar, sesion, setSesion, iterador, setIterador, temporizador, titulo }=useTemporizador();
+    const { segundos, setSegundos, activo, setActivo, cortar, setCortar, sesion, setSesion, iterador, setIterador, temporizador, titulo } = useTemporizador();
 
     const eventoCortarMenos = () => {
         if (cortar !== 1 && activo !== true) {
-          setCortar(cortar - 1);
+            setCortar(cortar - 1);
         }
-      }
-    
-      const eventoCortarMas = () => {
+    }
+
+    const eventoCortarMas = () => {
         if (cortar !== 60 && activo !== true) {
-          setCortar(cortar + 1);
+            setCortar(cortar + 1);
         }
-      }
-    
-      const eventosesionMenos = () => {
+    }
+
+    const eventosesionMenos = () => {
         if (sesion !== 1 && activo !== true) {
-          setSegundos((sesion * 60) - 60);
-          setSesion(sesion - 1);
+            setSegundos((sesion * 60) - 60);
+            setSesion(sesion - 1);
         }
-      }
-    
-      const eventosesionMas = () => {
+    }
+
+    const eventosesionMas = () => {
         if (sesion !== 60 && activo !== true) {
-          setSegundos((sesion * 60) + 60);
-          setSesion(sesion + 1);
+            setSegundos((sesion * 60) + 60);
+            setSesion(sesion + 1);
         }
-      }
-    
-    
-      const eventoSeguirParar = () => {
+    }
+
+    const eventoSeguirParar = () => {
         if (activo === true) {
-          setActivo(false);
+            setActivo(false);
         }
         if (activo === false) {
-          setActivo(true);
+            setActivo(true);
         }
-      }
-    
-    
-      const eventoReset = () => {
+    }
+
+    const eventoReset = () => {
         setSegundos(1500);
         setCortar(5);
         setSesion(25);
         setActivo(false);
         setIterador("Session");
         document.getElementById("beep").load();
-      }
+    }
 
-    return {segundos, cortar, sesion, iterador, temporizador, titulo, eventoCortarMenos, eventoCortarMas, eventosesionMenos, eventosesionMas, eventoSeguirParar, eventoReset}
+    return { segundos, cortar, sesion, iterador, temporizador, titulo, eventoCortarMenos, eventoCortarMas, eventosesionMenos, eventosesionMas, eventoSeguirParar, eventoReset }
 }
