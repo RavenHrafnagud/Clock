@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/Clock/static/js/main.95211f06.chunk.js",
+    "main.js.map": "/Clock/static/js/main.95211f06.chunk.js.map",
+    "runtime-main.js": "/Clock/static/js/runtime-main.970164b7.js",
+    "runtime-main.js.map": "/Clock/static/js/runtime-main.970164b7.js.map",
+    "static/js/2.56181c8b.chunk.js": "/Clock/static/js/2.56181c8b.chunk.js",
+    "static/js/2.56181c8b.chunk.js.map": "/Clock/static/js/2.56181c8b.chunk.js.map",
+    "index.html": "/Clock/index.html",
+    "static/js/2.56181c8b.chunk.js.LICENSE.txt": "/Clock/static/js/2.56181c8b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.970164b7.js",
+    "static/js/2.56181c8b.chunk.js",
+    "static/js/main.95211f06.chunk.js"
+  ]
+}
